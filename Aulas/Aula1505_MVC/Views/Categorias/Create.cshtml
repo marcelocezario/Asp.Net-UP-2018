@@ -9,6 +9,13 @@
 
 @using (Html.BeginForm())
 {
+    @Html.TextBoxFor(m => m.Nome)
+    <br />
+    <br />
+    @Html.CheckBoxFor(m => m.Ativo)
+    <br />
+    <br />
 
+    <input type="submit" value="Salvar" />
 }
 
