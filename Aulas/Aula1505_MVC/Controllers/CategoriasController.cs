@@ -32,7 +32,7 @@ namespace Aula1505_MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult Formulario(string nome, string descricao)
+        public ActionResult Formulario(string nome, string descricao, bool ativo)
         {
             return View();
         }
