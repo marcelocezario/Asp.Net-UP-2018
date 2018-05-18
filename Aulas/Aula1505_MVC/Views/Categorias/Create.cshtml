@@ -10,26 +10,28 @@
 @using (Html.BeginForm())
 {
     @* -- Formulário v1 usando model --
-    @Html.TextBoxFor(m => m.Nome)
-    <br />
-    <br />
-    @Html.CheckBoxFor(m => m.Ativo)
-    <br />
-    <br />
+        @Html.TextBoxFor(m => m.Nome)
+        <br />
+        <br />
+        @Html.CheckBoxFor(m => m.Ativo)
+        <br />
+        <br />
     *@
 
-    @* -- Formulário v2 usando model --
+    // -- Formulário v2 usando model --
+    @Html.DisplayNameFor(m => m.Nome)
     @Html.EditorFor(m => m.Nome)
     <br />
     <br />
+    @Html.DisplayNameFor(m => m.Ativo)
     @Html.EditorFor(m => m.Ativo)
     <br />
     <br />
+
+    @* -- Formulário v3 usando model, form completo --
+
+        @Html.EditorForModel()
     *@
-
-
-    @Html.EditorForModel()
-
 
 
 
