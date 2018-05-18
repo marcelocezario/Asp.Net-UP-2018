@@ -9,12 +9,25 @@
 
 @using (Html.BeginForm())
 {
+    @* -- Formulário v1 usando model --
     @Html.TextBoxFor(m => m.Nome)
     <br />
     <br />
     @Html.CheckBoxFor(m => m.Ativo)
     <br />
     <br />
+    *@
+
+
+    @Html.EditorFor(m => m.Nome)
+    <br />
+    <br />
+    @Html.EditorFor(m => m.Ativo)
+    <br />
+    <br />
+
+
+
 
     <input type="submit" value="Salvar" />
 }
