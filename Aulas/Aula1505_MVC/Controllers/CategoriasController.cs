@@ -49,5 +49,10 @@ namespace Aula1505_MVC.Controllers
         {
             return View(categoria);
         }
+
+        public ActionResult Index2()
+        {
+            List<Categoria> categorias = new List<Categoria>()
+        }
     }
 }
