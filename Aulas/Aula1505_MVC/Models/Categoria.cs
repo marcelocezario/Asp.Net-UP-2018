@@ -11,6 +11,7 @@ namespace Aula1505_MVC.Models
         public int CategoriaID { get; set; }
 
         [Display(Name = "Título")]
+        [Required(ErrorMessage ="Favor preencher o campo título.")]
         public string Nome { get; set; }
 
         public bool Ativo { get; set; }
