@@ -19,8 +19,10 @@ namespace Aula2205_Entity.Models.DAL
 
             Database.SetInitializer<MeuContexto>(new DropCreateDatabaseIfModelChanges<MeuContexto>());
         }
-        
-        
-         
+
+        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Categoria> Categorias { get; set; }
+        public DbSet<Atividade> Atividades { get; set; }
+
     }
 }
