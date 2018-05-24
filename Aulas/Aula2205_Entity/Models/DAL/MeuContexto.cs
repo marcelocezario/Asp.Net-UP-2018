@@ -18,6 +18,9 @@ namespace Aula2205_Entity.Models.DAL
 
 
             Database.SetInitializer<MeuContexto>(new DropCreateDatabaseIfModelChanges<MeuContexto>());
-        } 
+        }
+        
+        
+         
     }
 }
