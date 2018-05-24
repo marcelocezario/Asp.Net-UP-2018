@@ -17,7 +17,6 @@ namespace Aula2205_Entity.Models
         public string Descricao { get; set; }
 
         public bool Ativo { get; set; }
-
-
+        
     }
 }
