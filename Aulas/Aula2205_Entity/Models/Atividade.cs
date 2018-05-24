@@ -17,6 +17,15 @@ namespace Aula2205_Entity.Models
         public string Descricao { get; set; }
 
         public bool Ativo { get; set; }
-        
+
+        public int CategoriaID { get; set; }
+
+        public virtual Categoria _Categoria { get; set; }
+
+        public int UsuarioID { get; set; }
+
+        public virtual Usuario _Usuario { get; set; }
+
+
     }
 }
