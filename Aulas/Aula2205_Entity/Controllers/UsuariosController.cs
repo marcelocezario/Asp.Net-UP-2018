@@ -17,5 +17,16 @@ namespace Aula2205_Entity.Controllers
                       
             return View(usuarios);
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Usuario usuario)
+        {
+            return View(usuario);
+        }
     }
 }
