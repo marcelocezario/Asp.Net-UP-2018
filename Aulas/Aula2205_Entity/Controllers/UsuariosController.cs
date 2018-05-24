@@ -31,6 +31,7 @@ namespace Aula2205_Entity.Controllers
             {
                 MeuContexto contexto = new MeuContexto();
                 contexto.Usuarios.Add(usuario);
+                contexto.SaveChanges();
                 return RedirectToAction("Index");
             }
 
