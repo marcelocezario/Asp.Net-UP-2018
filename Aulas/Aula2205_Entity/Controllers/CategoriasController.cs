@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Aula2205_Entity.Models;
+using Aula2205_Entity.Models.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,11 @@ namespace Aula2205_Entity.Controllers
         // GET: Categorias
         public ActionResult Index()
         {
-            return View();
+            MeuContexto contexto = new MeuContexto();
+            List<Categoria> categorias = contexto.Categorias.ToList();
+
+            return View(categorias);
         }
+
     }
 }
