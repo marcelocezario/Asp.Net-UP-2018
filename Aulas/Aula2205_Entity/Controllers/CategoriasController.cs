@@ -3,6 +3,7 @@ using Aula2205_Entity.Models.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -38,5 +39,25 @@ namespace Aula2205_Entity.Controllers
 
             return View(categoria);
         }
+
+        public ActionResult Details (int? id)
+        {
+            if(id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            MeuContexto contexto = new MeuContexto();
+            Categoria categoria = contexto.Categorias.Find(id);
+
+            if (categoria == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(categoria);
+        }
+
+
     }
 }
