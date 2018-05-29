@@ -92,6 +92,35 @@ namespace Aula2205_Entity.Controllers
             return View(categoria);
         }
 
+        public ActionResult Delete (int? id)
+        {
+            if(id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
 
+            MeuContexto contexto = new MeuContexto();
+            Categoria categoria = contexto.Categorias.Find(id);
+
+            if(categoria == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(categoria);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            MeuContexto contexto = new MeuContexto();
+            Categoria categoria = contexto.Categorias.Find(id);
+
+            contexto.Categorias.Remove(categoria);
+            contexto.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }
