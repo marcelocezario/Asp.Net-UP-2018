@@ -19,5 +19,24 @@ namespace Aula2205_Entity.Controllers
             return View(categorias);
         }
 
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Categoria categoria)
+        {
+            if (ModelState.IsValid)
+            {
+                MeuContexto contexto = new MeuContexto();
+                contexto.Categorias.Add(categoria);
+                contexto.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(categoria);
+        }
     }
 }
