@@ -110,7 +110,7 @@ namespace Aula2205_Entity.Controllers
             return View(categoria);
         }
 
-        [HttpPost]
+        [HttpPost,ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
