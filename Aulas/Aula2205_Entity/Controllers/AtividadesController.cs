@@ -57,5 +57,39 @@ namespace Aula2205_Entity.Controllers
 
             return View(atividade);
         }
+
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            MeuContexto contexto = new MeuContexto();
+            Atividade atividade = contexto.Atividades.Find(id);
+
+            if (atividade == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(atividade);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Atividade atividade)
+        {
+            if (ModelState.IsValid)
+            {
+                MeuContexto contexto = new MeuContexto();
+                contexto.Entry(atividade).State = System.Data.Entity.EntityState.Modified;
+                contexto.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+
+            return View(atividade);
+        }
     }
 }
