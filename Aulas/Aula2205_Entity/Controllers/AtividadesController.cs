@@ -3,6 +3,7 @@ using Aula2205_Entity.Models.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -34,6 +35,24 @@ namespace Aula2205_Entity.Controllers
                 contexto.Atividades.Add(atividade);
                 contexto.SaveChanges();
                 return RedirectToAction("Index");
+            }
+
+            return View(atividade);
+        }
+
+        public ActionResult Details (int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            MeuContexto contexto = new MeuContexto();
+            Atividade atividade = contexto.Atividades.Find(id);
+
+            if (atividade == null)
+            {
+                return HttpNotFound();
             }
 
             return View(atividade);
