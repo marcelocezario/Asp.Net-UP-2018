@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Aula2205_Entity.Models;
+using Aula2205_Entity.Models.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,10 @@ namespace Aula2205_Entity.Controllers
         // GET: Atividades
         public ActionResult Index()
         {
-            return View();
+            MeuContexto contexo = new MeuContexto();
+            List<Atividade> atividades = contexo.Atividades.ToList();
+
+            return View(atividades);
         }
     }
 }
