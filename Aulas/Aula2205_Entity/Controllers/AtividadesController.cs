@@ -18,5 +18,25 @@ namespace Aula2205_Entity.Controllers
 
             return View(atividades);
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create (Atividade atividade)
+        {
+            if (ModelState.IsValid)
+            {
+                MeuContexto contexto = new MeuContexto();
+                contexto.Atividades.Add(atividade);
+                contexto.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(atividade);
+        }
     }
 }
