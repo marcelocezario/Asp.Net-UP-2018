@@ -14,14 +14,17 @@ namespace Aula2205_Entity.Controllers
         // GET: Atividades
         public ActionResult Index()
         {
-            MeuContexto contexo = new MeuContexto();
-            List<Atividade> atividades = contexo.Atividades.ToList();
+            MeuContexto contexto = new MeuContexto();
+            List<Atividade> atividades = contexto.Atividades.ToList();
 
             return View(atividades);
         }
 
         public ActionResult Create()
         {
+            MeuContexto contexto = new MeuContexto();
+            ViewBag.CategoriaID = new SelectList(contexto.Categorias.ToList(),"CategoriaID","Nome");
+            ViewBag.UsuarioID = new SelectList(contexto.Usuarios.ToList(), "UsuarioID", "Nome");
             return View();
         }
 
